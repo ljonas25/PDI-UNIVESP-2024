@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial - Info Pet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Add imagem de fundo*/
+        body {
+            position: relative; /* Sobreposição */
+            background-image: url('/static/background.jpg'); /* Caminho da imagem */
+            background-size: cover; /* Imagem em tela cheia */
+            background-position: center; 
+            background-repeat: no-repeat; 
+            min-height: 150vh; 
+            color: white; 
+        }
+
+        /* Sobreposição de fundo com 50% de transparência */
+        .overlay {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: -1; 
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Sobreposição com 50% de transparência -->
+    <div class="overlay"></div>
+    
+    <div class="container">
+        <h1 class="text-center my-4">Bem-vindo(a) ao Info Pet 🐾 </h1>
+        <div class="text-center">
+            <a href="{{ url_for('cadastro') }}" class="btn btn-primary mx-2">Cadastrar Animal</a>
+            <a href="{{ url_for('animais') }}" class="btn btn-info mx-2">Ver Animais Cadastrados</a>
+            <form action="{{ url_for('logout') }}" method="post" class="d-inline">
+                <button type="submit" class="btn btn-danger mx-2">Logout</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

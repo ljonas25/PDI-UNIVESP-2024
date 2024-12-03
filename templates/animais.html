@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animais Cadastrados - Info Pet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .animal-item {
+            display: flex;
+            align-items: stretch; 
+        }
+        .animal-photo {
+            width: 250px; 
+            height: 100%; 
+            object-fit: cover; 
+            margin-right: 15px; 
+        }
+        .animal-info {
+            flex-grow: 1; 
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <h1 class="text-center my-4">Lista de Animais Cadastrados 🐾</h1>
+        <ul class="list-group">
+            {% for animal in animais %}
+                <li class="list-group-item">
+                    <div class="row animal-item">
+                        <!-- Foto do animal -->
+                        <div class="col-md-3">
+                            <img src="{{ animal[6] }}" alt="Foto de {{ animal[1] }}" class="animal-photo img-fluid my-2">
+                        </div>
+                        <!-- Descrições do animal -->
+                        <div class="col-md-9 animal-info">
+                            <strong>Data de Chegada:</strong> {{ animal[9] }}<br>
+                            <strong>Espécie:</strong> {{ animal[11] }}<br>
+                            <strong>Nome:</strong> {{ animal[1] }}<br>
+                            <strong>Sexo:</strong> {{ animal[10] }}<br>
+                            <strong>Raça:</strong> {{ animal[2] }}<br>
+                            <strong>Idade:</strong> {{ animal[3] }}<br>
+                            <strong>Peso (Kg):</strong> {{ animal[8] }}<br>
+                            <strong>Vacinação:</strong> {{ animal[5] }}<br>
+                            <strong>Descrições Gerais:</strong> {{ animal[4] }}<br>
+                            <!-- Botões de Editar e Excluir -->
+                            <a href="{{ url_for('editar', animal_id=animal[0]) }}" class="btn btn-warning btn-sm">Editar</a>
+                            <form action="{{ url_for('excluir', animal_id=animal[0]) }}" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Voltar para a Página Inicial</a>
+        </div>
+    </div>
+</body>
+</html>

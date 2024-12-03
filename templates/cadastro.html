@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Animal - Info Pet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .form-group {
+            max-width: 500px;
+            margin: auto;
+        }
+        .form-control {
+            margin-bottom: 10px;
+        }
+        .btn-custom {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center">Cadastrar Animal</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="raca">Raça:</label>
+                <input type="text" name="raca" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" name="idade" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="peso">Peso:</label>
+                <input type="text" name="peso" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="data_chegada">Data de Chegada:</label>
+                <input type="date" name="data_chegada" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sexo">Sexo:</label>
+                <select name="sexo" class="form-control" required>
+                    <option value="Macho">Macho</option>
+                    <option value="Fêmea">Fêmea</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="especie">Espécie:</label>
+                <input type="text" name="especie" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="vacinacao">Vacinação:</label>
+                <select name="vacinacao" class="form-control">
+                    <option value="pendente">Pendente</option>
+                    <option value="em dia">Em dia</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <textarea name="descricao" class="form-control" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="foto">Foto:</label>
+                <input type="file" name="foto" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-custom mt-3">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
+
